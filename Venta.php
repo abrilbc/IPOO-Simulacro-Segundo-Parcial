@@ -106,7 +106,7 @@ class Venta{
 
     public function __toString() {
         $mostrarVenta = "\n---------------------------------------" .
-                        "\nNúmero de Venta: " . $this->getNumero() . 
+                        "\n--> Número de Venta: " . $this->getNumero() . 
                         "\n---------------------------------------" .
                         "\nFecha de la Venta: " . $this->getFecha() . 
                         "\nCliente: " . $this->getObjCliente() .

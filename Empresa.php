@@ -139,8 +139,9 @@ public function registrarVenta($colCodigosMoto, $objCliente) {
     public function mostrarVentasRealizadas() {
         $cadena = "";
         foreach ($this->getcolVentasRealizadas() as $indice => $venta) {
-            $mostrarEmpresa .= $venta;
+            $cadena .= "\n" . $venta;
         }
+        return $cadena;
     }
     public function __toString() {
         $mostrarEmpresa =   "\n---------------------------------------\n" . 
@@ -148,11 +149,10 @@ public function registrarVenta($colCodigosMoto, $objCliente) {
                             "\nDenominación: " . $this->getDenominacion() . 
                             "\nDireccion: " . $this->getDireccion() . 
                             "\n---------------------------------------" .
-                            "\nColeccion Clientes: " . $this->mostrarColClientes() . 
+                            "\n----------Coleccion Clientes-----------" . $this->mostrarColClientes() .
+                            "\n------------Coleccion Motos------------" . $this->mostrarColMotos() .
                             "\n---------------------------------------" .
-                            "\n\nColeccion Motos: " . $this->mostrarColMotos() .
-                            "\n---------------------------------------" .
-                            "\n---> Coleccion Ventas: " . $this->mostrarVentasRealizadas();
+                            "\n-----------Coleccion Ventas------------" . $this->mostrarVentasRealizadas();
         
         return $mostrarEmpresa;
     }
