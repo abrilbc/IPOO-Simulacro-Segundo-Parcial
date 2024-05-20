@@ -120,26 +120,40 @@ public function registrarVenta($colCodigosMoto, $objCliente) {
         }
         return $ventas_importadasRealizadas;
     }
+    public function mostrarColClientes() {
+        $cadena = "";
+        foreach ($this->getcolClientes() as $indice => $cliente) {
+            $cadena .=  "\n---------------------------------------" .
+                                "\nCliente " . ($indice+1) . ": " . $cliente ;
+        }
+        return $cadena;
+    }
+    public function mostrarColMotos() {
+        $cadena = "";
+        foreach ($this->getcolMotos() as $indice => $moto) {
+            $cadena .=  "\n---------------------------------------" .
+                                "\nMoto " . ($indice+1) . ": " . $moto;
+        }
+        return $cadena;
+    }
+    public function mostrarVentasRealizadas() {
+        $cadena = "";
+        foreach ($this->getcolVentasRealizadas() as $indice => $venta) {
+            $mostrarEmpresa .= $venta;
+        }
+    }
     public function __toString() {
         $mostrarEmpresa =   "\n---------------------------------------\n" . 
                             "INFORMACIÓN EMPRESA" .
                             "\nDenominación: " . $this->getDenominacion() . 
                             "\nDireccion: " . $this->getDireccion() . 
-                            "\nColeccion Clientes: ";
-        foreach ($this->getcolClientes() as $indice => $cliente) {
-            $mostrarEmpresa .=  "\n---------------------------------------" .
-                                "\nCliente " . ($indice+1) . ": " . $cliente ;
-        }
-        $mostrarEmpresa .= "\n\nColeccion Motos: ";
-        foreach ($this->getcolMotos() as $indice => $moto) {
-            $mostrarEmpresa .=  "\n---------------------------------------" .
-                                "\nMoto " . ($indice+1) . ": " . $moto;
-        }
-        $mostrarEmpresa .=  "\n---------------------------------------" .
-                            "\n---> Coleccion Ventas: ";
-        foreach ($this->getcolVentasRealizadas() as $indice => $venta) {
-            $mostrarEmpresa .= $venta;
-        }
+                            "\n---------------------------------------" .
+                            "\nColeccion Clientes: " . $this->mostrarColClientes() . 
+                            "\n---------------------------------------" .
+                            "\n\nColeccion Motos: " . $this->mostrarColMotos() .
+                            "\n---------------------------------------" .
+                            "\n---> Coleccion Ventas: " . $this->mostrarVentasRealizadas();
+        
         return $mostrarEmpresa;
     }
 }
