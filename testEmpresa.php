@@ -17,6 +17,8 @@ $objMoto14 = new MotoImportada(14, 12499900, 2020, "Pitbike Enduro Motocross Apo
 
 $empresa = new Empresa("Alta Gama", "Av. Argentina 123", [$objCliente1, $objCliente2], [$objMoto11, $objMoto12, $objMoto13, $objMoto14], []);
 //Registro las ventas y visualizo el resultado
+
+//PRIMERA VENTA
 $precioPrimerVenta = $empresa->registrarVenta([11, 12, 13, 14], $objCliente2);
 if ($precioPrimerVenta > 0) {
     echo "Venta 1: Realizada con éxito.\n";
@@ -25,6 +27,7 @@ if ($precioPrimerVenta > 0) {
     echo "Venta 1: No realizada.\n";
 }
 
+//SEGUNDA VENTA
 $precioSegundaVenta = $empresa->registrarVenta([13, 14], $objCliente2);
 if ($precioSegundaVenta > 0) {
     echo "Venta 2: Realizada con éxito.\n";
@@ -33,6 +36,7 @@ if ($precioSegundaVenta > 0) {
     echo "Venta 2: No realizada.\n\n";
 }
 
+//TERCERA VENTA
 $precioTercerVenta = $empresa->registrarVenta([14, 2], $objCliente2);
 if ($precioTercerVenta > 0) {
     echo "Venta 3: Realizada con éxito.\n";
@@ -42,7 +46,9 @@ if ($precioTercerVenta > 0) {
 }
 
 echo "\n\n|----------------------------------------------------------------|\n\n\n";
+
 //Invocar al método informarVentasImportadas(). Visualizar el resultado obtenido.
+
 $ventasImportadas = $empresa->informarVentasImportadas();
 foreach ($ventasImportadas as $i => $venta) {
     echo "\n\n---> Venta de Moto Importada N° " . ($i+1) . ": \n";
@@ -50,8 +56,12 @@ foreach ($ventasImportadas as $i => $venta) {
 }
 
 //Invocar al método informarSumaVentasNacionales(). Visualizar el resultado obtenido
+
 $sumaVentasNacionales = $empresa->informarSumaVentasNacionales();
 echo "\n\n\nSuma Total de las ventas de Motos Nacionales: $" . $sumaVentasNacionales;
 echo "\n\n|----------------------------------------------------------------|\n\n\n\n";
+
+//Mostrar la clase EMPRESA
+
 echo "EMPRESA:\n";
 echo $empresa;

@@ -79,7 +79,7 @@ class Venta{
         $sumatoriaPrecioVenta = 0;
         $copiaColMotos = $this->getColMotos();
             foreach ($copiaColMotos as $moto) {
-                if ($moto instanceof MotoNacional) {
+                if (is_a($moto, 'MotoNacional')) {
                     $precioMoto = $moto->darPrecioVenta();
                     $sumatoriaPrecioVenta += $precioMoto;
                 }
@@ -90,7 +90,7 @@ class Venta{
         $copiaColMotos = $this->getColMotos();
         $arregloMotosImportadas = [];
         foreach ($copiaColMotos as $moto) {
-            if ($moto instanceof MotoImportada) {
+            if (is_a($moto, 'MotoImportada')) {
                 $arregloMotosImportadas[] = $moto;
             }
         }

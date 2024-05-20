@@ -66,10 +66,9 @@ class Moto{
     public function darPrecioVenta() {
         $moto_costo = $this->getCosto();
         $edad_moto = date('Y') - $this->getAnioFabricacion();
-        $porc_incremento = $this->getPorcIncAnual();
         $precio_venta = -1;
         if ($this->getActiva()) {
-            $precio_venta = $moto_costo + ($moto_costo * ($edad_moto * $porc_incremento));
+            $precio_venta = $moto_costo + ($moto_costo * ($edad_moto * $this->getPorcIncAnual()));
         }
         return $precio_venta;
     }
